@@ -10,7 +10,7 @@ https://www.dropbox.com/s/i3intevnp05wm4r/ko_13_5_precalculated.tab.gz?dl=0
 
 In a shift from the original, users will have to append KEGG Pathways metadata manually to the predicted metagenome as the databases do not output the same. This can be done using the provided KEGG_metadata file:
 1. Predict the metagenome: predict_metagenomes.py -i OTU_table_norm.biom -o predicted_metagenome.biom
-2. Add metadata: biom add-metadata -i predicted_metagenome.biom -o predicted_metagenome_md1.biom --observation-metadata-fp KEGG_metadata.txt --sc-pipe-separated KEGG_Pathways
+2. Add metadata: biom add-metadata -i predicted_metagenome.biom -o predicted_metagenome_md1.biom --observation-metadata-fp KEGG_metadata.txt --sc-pipe-separated KEGG_Pathways --output-as-json
 3. Check your new metadata added predicted metagenome: biom convert -i predicted_metagenome_md1.biom -o predicted_metagenome_md.tab --observation-metadata-fp KEGG_metadata.txt --header-key KEGG_Description --to-tsv --table-type "OTU table" --tsv-metadata-formatter naive
 
 Taxonomy metadata is added as in the original PICRUSt databases under the "taxonomy" header.
